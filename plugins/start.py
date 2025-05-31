@@ -92,27 +92,18 @@ async def start_command(client: Client, message: Message):
         await message.reply_text(f"<b><i>➥ 𝚃𝚑𝚒𝚜 𝙼𝚊𝚜𝚜𝚊𝚐𝚎 𝚆𝚒𝚕𝚕 𝙱𝚎 𝙳𝚎𝚕𝚎𝚝𝚎𝚍 𝙸𝚗 30 𝙼𝚒𝚗𝚞𝚝𝚎𝚜.</i></b>")
         return
     else:
-        reply_markup = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
-                ]
-            ]
-                )
-        await message.reply_text(
-            text = START_MSG.format(
+         await message.reply_text(
+              text = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-            reply_markup = reply_markup,
-            disable_web_page_preview = True,
-            quote = True
-        )
-        return   
+               mention = message.from_user.mention,
+              id = message.from_user.id
+        ),
+        disable_web_page_preview = True,
+        quote = True
+    )
+    return   
 
 
 #=====================================================================================##
